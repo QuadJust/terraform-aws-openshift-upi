@@ -1,6 +1,6 @@
 data "aws_availability_zones" "available" {
   state = "available"
-  blacklisted_names = local.blacklist_az
+  exclude_names = local.blacklist_az
 }
 
 locals  {

@@ -36,7 +36,7 @@ resource "aws_instance" "master" {
   }
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

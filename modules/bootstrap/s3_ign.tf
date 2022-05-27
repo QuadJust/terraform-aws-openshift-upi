@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "ign" {
   }
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

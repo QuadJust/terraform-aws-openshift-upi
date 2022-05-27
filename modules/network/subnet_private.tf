@@ -16,7 +16,7 @@ resource "aws_subnet" "private" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_eip" "private_nat_gateway" {
   }, local.cluster_tag)
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_nat_gateway" "private" {
   }, local.cluster_tag)
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "private" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

@@ -34,6 +34,6 @@ resource "aws_security_group" "public" {
 
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }

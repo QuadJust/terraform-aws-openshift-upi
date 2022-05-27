@@ -10,7 +10,7 @@ resource "aws_lb" "api" {
   }, local.cluster_tag)
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "api" {
   }
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

@@ -9,7 +9,7 @@ resource "aws_vpc" "cluster" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

@@ -38,6 +38,6 @@ resource "aws_elb" "private_api" {
   }, local.cluster_tag)
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }

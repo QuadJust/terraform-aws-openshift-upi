@@ -3,7 +3,7 @@ variable "config_dir" {
 }
 
 variable "blacklist_az" {
-  type = "list"
+  type = list
   description = "Unavailable AZ name list for your AWS account. like: [\"ap-northeast-1a\"]"
 }
 
@@ -22,7 +22,7 @@ locals {
   cluster_tag = {
     "kubernetes.io/cluster/${local.cluster_id}" = "owned"
   }
-  cluster_cidr = local.openshift_install_state["*installconfig.InstallConfig"]["config"]["networking"]["machineCIDR"]
+  cluster_cidr = local.openshift_install_state["*installconfig.InstallConfig"]["config"]["networking"]["machineNetwork"][0]["cidr"]
 }
 
 locals {

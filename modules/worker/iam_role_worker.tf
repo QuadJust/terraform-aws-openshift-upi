@@ -14,7 +14,7 @@ resource "aws_iam_role" "worker" {
   assume_role_policy = "${data.aws_iam_policy_document.ec2.json}"
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

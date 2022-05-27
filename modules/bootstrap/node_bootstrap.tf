@@ -32,7 +32,7 @@ resource "aws_instance" "bootstrap" {
   }
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 

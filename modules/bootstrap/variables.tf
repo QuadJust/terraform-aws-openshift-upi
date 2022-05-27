@@ -27,7 +27,7 @@ locals {
   vpc_id = var.node_context.vpc_id
   subnet_ids = var.node_context.subnet_ids
   sg_ids = var.node_context.sg_ids
-  target_groups = var.node_context.target_groups
+  #target_groups = var.node_context.target_groups
   key_name = var.node_context.key_name
   ign_path = var.node_context.ign_path
   api_target_group_arn = var.node_context.api_target_group_arn

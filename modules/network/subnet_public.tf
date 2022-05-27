@@ -17,7 +17,7 @@ resource "aws_subnet" "public" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_internet_gateway" "public" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -46,7 +46,7 @@ resource "aws_route_table" "public" {
 
   lifecycle {
     # ignore_changes = ["tags.%", "tags.openshift_creationDate", "tags.openshift_expirationDate"]
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_route" "public_internet" {
   route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.public.id
-  depends_on             = ["aws_route_table.public"]
+  depends_on             = [aws_route_table.public]
 }
 
 resource "aws_route_table_association" "public" {

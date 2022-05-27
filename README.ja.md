@@ -291,7 +291,7 @@ $ terraform apply -target module.network
 
 * `openshift-install` コマンドで生成したIgnitionファイル`bootstrap.ign`を、インターネットから取得できる場所に配置する。
   * ここでは、S3に配置する。
-* Red Hat CoreOSのAMI( `rhcos-410.*-hvm` )を指定し、パブリックなサブネットにEC2インスタンスを起動する
+* Red Hat CoreOSのAMI( `rhcos-49.*` )を指定し、パブリックなサブネットにEC2インスタンスを起動する
   * 以下参照のこと: [AMI一覧](https://docs.openshift.com/container-platform/4.1/installing/installing_aws_user_infra/installing-aws-user-infra.html#installation-aws-user-infra-rhcos-ami_installing-aws-user-infra)
 * 以下のIgnitionファイルを作成し、UserDataに指定することで、S3からIgnitionファイルを取得できるようにする
 * BootStrapノードは一時的なマスターとして動作するので、上記で作成したロードバランサーに登録する
@@ -357,7 +357,7 @@ Jun 29 01:10:37 ip-10-0-103-163 bootkube.sh[1407]: Waiting for etcd cluster...
 
 ここでの作業は、以下の通りです。
 
-* Red Hat CoreOSのAMI( `rhcos-410.*-hvm` )を指定し、プライベートなサブネットにEC2インスタンスを起動する
+* Red Hat CoreOSのAMI( `rhcos-49.*` )を指定し、プライベートなサブネットにEC2インスタンスを起動する
 * 以下のIgnitionファイルを作成し、UserDataに指定することで、BootStrapノードからIgnitionファイルを取得できるようにする
 * マスターノードをロードバランサーに登録する
 * マスターノードのIPを、etcdのドメイン名としてDNSに登録する

@@ -1,7 +1,7 @@
 {
     "ignition": {
         "config": {
-            "append": [
+            "merge": [
                 {
                     "source": "https://api-int.${cluster_domain}:22623/config/master",
                     "verification": {}
@@ -19,7 +19,7 @@
             }
         },
         "timeouts": {},
-        "version": "2.2.0"
+        "version": "3.1.0"
     },
     "networkd": {},
     "passwd": {},

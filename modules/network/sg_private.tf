@@ -24,6 +24,6 @@ resource "aws_security_group" "private" {
   }, local.cluster_tag)
 
   lifecycle {
-    ignore_changes = ["tags"]
+    ignore_changes = [tags]
   }
 }

@@ -16,7 +16,7 @@ data "aws_ami" "rhcos" {
 
   filter {
     name   = "name"
-    values = ["rhcos-410.*-hvm"]
+    values = ["rhcos-49.84.202109241334-0-x86_64"]
   }
 
   filter {
