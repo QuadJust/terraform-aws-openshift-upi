@@ -19,9 +19,10 @@ resource "aws_security_group" "private" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = merge({
-    Name = "${local.cluster_id}-private",
-  }, local.cluster_tag)
+  # tags = merge({
+  #   Name = "${local.cluster_id}-private",
+  # }, local.cluster_tag)
+  tags = local.cluster_tag
 
   lifecycle {
     ignore_changes = [tags]

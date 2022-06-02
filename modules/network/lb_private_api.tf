@@ -35,7 +35,8 @@ resource "aws_elb" "private_api" {
 
   tags = merge({
     Name = "${local.cluster_id}-private-api",
-  }, local.cluster_tag)
+  } , local.cluster_tag)
+  # tags = local.cluster_tag
 
   lifecycle {
     ignore_changes = [tags]
