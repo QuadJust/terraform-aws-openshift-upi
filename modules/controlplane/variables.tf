@@ -15,7 +15,7 @@ variable "node_context" {
     key_name = string
     subnet_ids = list(string)
     api_target_group_arn = string
-    private_api_elb_id = string
+    private_api_target_group_arn = list(string)
   })
 }
 
@@ -39,7 +39,7 @@ locals {
   sg_ids = var.node_context.sg_ids
   key_name = var.node_context.key_name
   api_target_group_arn = var.node_context.api_target_group_arn
-  private_api_elb_id = var.node_context.private_api_elb_id
+  private_api_target_group_arn = var.node_context.private_api_target_group_arn
 
   ca_bundle = var.controlplane_context.ca_bundle
   count = var.controlplane_context.count

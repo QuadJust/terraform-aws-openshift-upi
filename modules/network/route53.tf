@@ -8,8 +8,8 @@ resource "aws_route53_record" "api_public" {
   type    = "A"
 
   alias {
-    name                   = aws_lb.api.dns_name
-    zone_id                = aws_lb.api.zone_id
+    name                   = aws_lb.ext.dns_name
+    zone_id                = aws_lb.ext.zone_id
     evaluate_target_health = false
   }
 }
@@ -32,8 +32,8 @@ resource "aws_route53_record" "api_public_private" {
   type    = "A"
 
   alias {
-    name                   = aws_lb.api.dns_name
-    zone_id                = aws_lb.api.zone_id
+    name                   = aws_lb.ext.dns_name
+    zone_id                = aws_lb.ext.zone_id
     evaluate_target_health = false
   }
 }
@@ -44,8 +44,8 @@ resource "aws_route53_record" "api_private" {
   type    = "A"
 
   alias {
-    name                   = aws_elb.private_api.dns_name
-    zone_id                = aws_elb.private_api.zone_id
+    name                   = aws_lb.int.dns_name
+    zone_id                = aws_lb.int.zone_id
     evaluate_target_health = false
   }
 }

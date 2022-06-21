@@ -1,12 +1,12 @@
-resource "aws_lb" "api" {
-  name                             = "${local.cluster_id}-api"
+resource "aws_lb" "ext" {
+  name                             = "${local.cluster_id}-ext"
   load_balancer_type               = "network"
   internal                         = false
   subnets                          = aws_subnet.public[*].id
   enable_cross_zone_load_balancing = true
 
   tags = merge({
-    Name = "${local.cluster_id}-api",
+    Name = "${local.cluster_id}-ext",
   }, local.cluster_tag)
 
   lifecycle {
@@ -14,8 +14,8 @@ resource "aws_lb" "api" {
   }
 }
 
-resource "aws_lb_target_group" "api" {
-  name                 = "${local.cluster_id}-api"
+resource "aws_lb_target_group" "ext" {
+  name                 = "${local.cluster_id}-ext"
   port                 = 6443
   protocol             = "TCP"
   vpc_id               = aws_vpc.cluster.id
@@ -34,13 +34,13 @@ resource "aws_lb_target_group" "api" {
   }
 }
 
-resource "aws_lb_listener" "api" {
-  load_balancer_arn = aws_lb.api.arn
+resource "aws_lb_listener" "ext" {
+  load_balancer_arn = aws_lb.ext.arn
   port              = 6443
   protocol          = "TCP"
 
   default_action {
-    target_group_arn = aws_lb_target_group.api.arn
+    target_group_arn = aws_lb_target_group.ext.arn
     type             = "forward"
   }
 }

@@ -40,14 +40,15 @@ resource "aws_instance" "master" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "api" {
+resource "aws_lb_target_group_attachment" "ext" {
   count = length(aws_instance.master)
   target_group_arn = local.api_target_group_arn
   target_id = aws_instance.master[count.index].id
 }
 
-resource "aws_elb_attachment" "private_api" {
+resource "aws_lb_target_group_attachment" "int" {
   count = length(aws_instance.master)
-  elb      = local.private_api_elb_id
-  instance = aws_instance.master[count.index].id
+  target_group_arn = element(local.private_api_target_group_arn, length(local.private_api_target_group_arn))
+  target_id = aws_instance.master[count.index].id
 }
+

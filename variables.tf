@@ -42,7 +42,7 @@ locals {
     key_name = aws_key_pair.cluster.key_name
     ign_path = "${var.config_dir}/bootstrap.ign"
     api_target_group_arn = module.network.api_target_group_arn
-    private_api_elb_id = module.network.private_api_elb_id
+    private_api_target_group_arn = module.network.private_api_target_group_arn
   }
 
   master_node_context = {
@@ -51,7 +51,7 @@ locals {
     sg_ids = [module.network.public_sg_id, module.network.private_sg_id]
     key_name = aws_key_pair.cluster.key_name
     api_target_group_arn = module.network.api_target_group_arn
-    private_api_elb_id = module.network.private_api_elb_id
+    private_api_target_group_arn = module.network.private_api_target_group_arn
   }
 
   controlplane_context = {

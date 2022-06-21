@@ -15,7 +15,7 @@ variable "node_context" {
     key_name = string
     subnet_ids = list(string)
     api_target_group_arn = string
-    private_api_elb_id = string
+    private_api_target_group_arn = list(string)
   })
 }
 
@@ -31,5 +31,5 @@ locals {
   key_name = var.node_context.key_name
   ign_path = var.node_context.ign_path
   api_target_group_arn = var.node_context.api_target_group_arn
-  private_api_elb_id = var.node_context.private_api_elb_id
+  private_api_target_group_arn = var.node_context.private_api_target_group_arn
 }

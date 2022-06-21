@@ -19,9 +19,10 @@ output "private_sg_id" {
 }
 
 output "api_target_group_arn" {
-  value = aws_lb_target_group.api.arn
+  value = aws_lb_target_group.ext.arn
 }
 
-output "private_api_elb_id" {
-  value = aws_elb.private_api.id
+output "private_api_target_group_arn" {
+  value = [aws_lb_target_group.aint.arn, aws_lb_target_group.sint.arn]
 }
+

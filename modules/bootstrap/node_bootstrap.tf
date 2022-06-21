@@ -36,12 +36,18 @@ resource "aws_instance" "bootstrap" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "bootstrap_api" {
+resource "aws_lb_target_group_attachment" "bootstrap_ext" {
   target_group_arn = local.api_target_group_arn
   target_id        = aws_instance.bootstrap.id
 }
 
-resource "aws_elb_attachment" "private_api" {
-  elb      = local.private_api_elb_id
-  instance = aws_instance.bootstrap.id
+resource "aws_lb_target_group_attachment" "bootstrap_private_aint" {
+  target_group_arn = element(local.private_api_target_group_arn, 0)
+  target_id        = aws_instance.bootstrap.id
 }
+
+resource "aws_lb_target_group_attachment" "bootstrap_private_sint" {
+  target_group_arn = element(local.private_api_target_group_arn, 1)
+  target_id        = aws_instance.bootstrap.id
+}
+
