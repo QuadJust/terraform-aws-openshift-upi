@@ -1,0 +1,1 @@
+{"clusterName":"shishika-upi","clusterID":"7514638f-037d-4168-9e97-a72af6046a9f","infraID":"shishika-upi-vkdfj","aws":{"region":"ap-northeast-1","identifier":[{"kubernetes.io/cluster/shishika-upi-vkdfj":"owned"},{"openshiftClusterID":"7514638f-037d-4168-9e97-a72af6046a9f"}],"clusterDomain":"shishika-upi.jp.apacshift.support"}}
