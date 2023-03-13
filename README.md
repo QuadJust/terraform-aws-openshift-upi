@@ -165,7 +165,7 @@ $ terraform apply -target module.controlplane
 ### Delete unused resources
 
 ```bash
-$ terraform destroy module.bootstrap
+$ terraform destroy -target module.bootstrap
 ```
 
 ### Access check
